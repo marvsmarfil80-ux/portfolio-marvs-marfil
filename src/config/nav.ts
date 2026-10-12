@@ -2,7 +2,11 @@ import { Briefcase, FolderKanban, House, Mail, User } from "lucide-react";
 
 export const siteConfig = {
   name: "Marvs Marfil",
-  // Placeholder for now. Replace once the CV PDF is ready.
+  email: "marvsmarfil80@gmail.com",
+  githubUrl: "https://github.com/marvsmarfil80-ux",
+  // IANA time zone used by the live PH time display (UTC+8).
+  timeZone: "Asia/Manila",
+  // Placeholder for now. Replace once the CV PDF is ready (Phase 5).
   cvHref: "#",
 };
 
