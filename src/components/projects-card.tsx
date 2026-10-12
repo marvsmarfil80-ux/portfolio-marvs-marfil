@@ -29,13 +29,13 @@ export function ProjectsCard({ className = "" }: { className?: string }) {
         {featured.map((project) => (
           <li
             key={project.name}
-            className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-border bg-background px-3 py-2.5"
+            className="rounded-xl border border-border bg-background px-3 py-2"
           >
-            <span className="text-sm font-medium text-foreground">
+            <p className="text-[13px] font-medium leading-tight text-foreground">
               {project.name}
-            </span>
+            </p>
             <span
-              className={`inline-flex items-center gap-1.5 text-xs font-medium ${statusStyles[project.status]}`}
+              className={`mt-1 inline-flex items-center gap-1.5 text-[11px] font-medium ${statusStyles[project.status]}`}
             >
               <span
                 className="size-1.5 rounded-full bg-current"

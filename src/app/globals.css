@@ -67,3 +67,62 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Skills marquee (Home bento card) */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Pause while the card is hovered or focused. */
+.group:hover .marquee-track,
+.group:focus-visible .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Reduced motion: no animation, static wrapped list. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-wrap {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none;
+    width: 100%;
+  }
+  .marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+  .marquee-dup {
+    display: none;
+  }
+}

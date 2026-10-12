@@ -1,20 +1,16 @@
 import { GitBranch } from "lucide-react";
 import { BentoCard } from "@/components/bento-card";
-import { siteConfig } from "@/config/nav";
 
 export function GithubCard({ className = "" }: { className?: string }) {
   return (
     <BentoCard
       href="/about#github"
       title="GitHub"
-      description={siteConfig.githubUrl.replace("https://", "")}
+      description="@marvsmarfil80-ux"
       icon={GitBranch}
       className={className}
     >
-      {/* Placeholder until the contribution graph screenshot is provided. */}
-      <div className="flex h-24 w-full items-center justify-center rounded-xl border border-dashed border-border bg-background px-3 text-center text-xs text-muted">
-        Placeholder: contribution graph screenshot goes here
-      </div>
+      <p className="text-sm text-muted">My code and project repositories.</p>
     </BentoCard>
   );
 }

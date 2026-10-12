@@ -10,10 +10,16 @@ export function AboutCard({ className = "" }: { className?: string }) {
       icon={User}
       className={className}
     >
-      {/* Placeholder until the compressed photo is provided (next/image). */}
-      <div className="mx-auto flex h-28 w-24 flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-border bg-background text-xs text-muted">
-        <User className="size-5" aria-hidden="true" />
-        Photo placeholder
+      {/* Photo-only visual. Replace the placeholder with next/image once a photo is chosen. */}
+      <div
+        className="relative mx-auto -mb-10 mt-2 h-44 w-32"
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 rotate-6 rounded-2xl border border-border bg-background" />
+        <div className="absolute inset-0 -rotate-3 flex flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-border bg-card text-xs text-muted shadow-lg">
+          <User className="size-5" />
+          Your photo
+        </div>
       </div>
     </BentoCard>
   );

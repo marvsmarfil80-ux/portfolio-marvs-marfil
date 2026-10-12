@@ -15,12 +15,12 @@ export default function HomePage() {
         <h2 id="explore-heading" className="sr-only">
           Explore my portfolio
         </h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid auto-rows-[minmax(19.5rem,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <ProjectsCard className="sm:col-span-2" />
           <AboutCard />
           <SkillsCard />
-          <ExperienceCard className="sm:col-span-2" />
-          <GithubCard className="sm:col-span-2" />
+          <ExperienceCard className="sm:col-span-2 lg:col-span-1" />
+          <GithubCard className="sm:col-span-2 lg:col-span-3" />
         </div>
       </section>
     </div>
