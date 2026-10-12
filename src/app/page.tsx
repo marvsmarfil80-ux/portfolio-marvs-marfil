@@ -1,10 +1,9 @@
-import { PagePlaceholder } from "@/components/page-placeholder";
+import { Hero } from "@/components/hero";
 
 export default function HomePage() {
   return (
-    <PagePlaceholder
-      title="Home"
-      description="Placeholder page. The hero, At a glance strip, and bento cards will be added in Phase 2."
-    />
+    <div className="space-y-10">
+      <Hero />
+    </div>
   );
 }
