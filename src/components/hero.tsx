@@ -18,7 +18,7 @@ export function Hero() {
           Hi, I&apos;m Marvs Marfil
         </h1>
         <p className="text-xl font-semibold text-accent sm:text-2xl">
-          IT Assistant &amp; Automation Support
+          IT Assistant &amp; AI Workflow Automation
         </p>
       </div>
 
