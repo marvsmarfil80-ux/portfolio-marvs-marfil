@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
-import { FileText, Menu, User, X } from "lucide-react";
+import Image from "next/image";
+import { FileText, Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/config/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -17,12 +18,14 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
   return (
     <div className="flex h-full flex-col gap-8 p-6">
       <div className="flex flex-col items-center gap-3 text-center">
-        {/* Photo placeholder. Replace with the real photo in a later phase. */}
-        <div
-          className="flex size-24 items-center justify-center rounded-full border border-border bg-background text-muted"
-          aria-hidden="true"
-        >
-          <User className="size-10" />
+        <div className="relative size-24 overflow-hidden rounded-full border border-border bg-background">
+          <Image
+            src="/images/profile.jpg"
+            alt="Photo of Marvs Marfil"
+            fill
+            sizes="96px"
+            className="object-cover object-[50%_35%]"
+          />
         </div>
         <p className="text-lg font-semibold">{siteConfig.name}</p>
       </div>
