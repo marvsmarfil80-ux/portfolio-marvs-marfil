@@ -1,51 +1,10 @@
-import { Code2, GitMerge, Globe } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import {
-  siDocker,
-  siFastapi,
-  siGit,
-  siN8n,
-  siNextdotjs,
-  siPostgresql,
-  siPython,
-  siReact,
-  siSqlalchemy,
-  siTailwindcss,
-  siTypescript,
-} from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
+import { Code2 } from "lucide-react";
 import { BentoCard } from "@/components/bento-card";
+import { marqueeRows } from "@/data/skills";
+import type { Skill } from "@/data/skills";
+import { iconColor } from "@/lib/icon-color";
 
-type Skill = { name: string; brand?: SimpleIcon; fallback?: LucideIcon };
-
-// Demonstrated skills only.
-const rowOne: Skill[] = [
-  { name: "Python", brand: siPython },
-  { name: "FastAPI", brand: siFastapi },
-  { name: "PostgreSQL", brand: siPostgresql },
-  { name: "REST APIs", fallback: Globe },
-  { name: "SQLAlchemy", brand: siSqlalchemy },
-  { name: "Alembic", fallback: GitMerge },
-  { name: "Docker", brand: siDocker },
-];
-
-const rowTwo: Skill[] = [
-  { name: "React", brand: siReact },
-  { name: "Next.js", brand: siNextdotjs },
-  { name: "TypeScript", brand: siTypescript },
-  { name: "Tailwind CSS", brand: siTailwindcss },
-  { name: "n8n", brand: siN8n },
-  { name: "Git/GitHub", brand: siGit },
-];
-
-// Very dark brand colors (e.g. Next.js) would disappear on the dark theme.
-function iconColor(hex: string) {
-  const r = parseInt(hex.slice(0, 2), 16);
-  const g = parseInt(hex.slice(2, 4), 16);
-  const b = parseInt(hex.slice(4, 6), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return luminance < 0.25 ? "currentColor" : `#${hex}`;
-}
+const [rowOne, rowTwo] = marqueeRows;
 
 function Chip({ skill }: { skill: Skill }) {
   const Fallback = skill.fallback;
