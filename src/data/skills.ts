@@ -1,8 +1,6 @@
-import { Code2, Coffee, Database, GitMerge, Globe } from "lucide-react";
+import { Code2, Database, GitMerge, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  siC,
-  siCplusplus,
   siCss,
   siDocker,
   siFastapi,
@@ -30,8 +28,7 @@ export type SkillCategory =
   | "Backend"
   | "Frontend"
   | "Database"
-  | "Tools & Automation"
-  | "Languages";
+  | "Tools & Automation";
 
 export type SkillStatus = "demonstrated" | "learning";
 
@@ -39,50 +36,49 @@ export type Skill = {
   name: string;
   category: SkillCategory;
   status: SkillStatus;
-  // Where the skill is proven. Points to /projects until Phase 4 adds detail pages.
-  project?: string;
+  // Projects that prove the skill. Links point to /projects until Phase 4 adds detail pages.
+  projects?: string[];
   brand?: SimpleIcon;
   fallback?: LucideIcon;
 };
 
-const PROJECTS = "/projects";
+export const PROJECTS_HREF = "/projects";
+
+const INV = "Inventory Management System";
+const TASK = "Task Manager";
+const ALL = "All projects";
 
 // Single source of truth for the Home marquee and the About skills section.
-// Demonstrated = used in a finished project. Learning = no confirmed project evidence yet.
+// Demonstrated = used in a finished project.
+// Add { status: "learning" } entries here when something new is being studied.
 export const skills: Skill[] = [
-  // Demonstrated
-  { name: "Python", category: "Backend", status: "demonstrated", project: PROJECTS, brand: siPython },
-  { name: "FastAPI", category: "Backend", status: "demonstrated", project: PROJECTS, brand: siFastapi },
-  { name: "PostgreSQL", category: "Database", status: "demonstrated", project: PROJECTS, brand: siPostgresql },
-  { name: "REST APIs", category: "Backend", status: "demonstrated", project: PROJECTS, fallback: Globe },
-  { name: "SQLAlchemy", category: "Backend", status: "demonstrated", project: PROJECTS, brand: siSqlalchemy },
-  { name: "Alembic", category: "Backend", status: "demonstrated", project: PROJECTS, fallback: GitMerge },
-  { name: "Docker", category: "Tools & Automation", status: "demonstrated", project: PROJECTS, brand: siDocker },
-  { name: "React", category: "Frontend", status: "demonstrated", project: PROJECTS, brand: siReact },
-  { name: "Next.js", category: "Frontend", status: "demonstrated", project: PROJECTS, brand: siNextdotjs },
-  { name: "TypeScript", category: "Frontend", status: "demonstrated", project: PROJECTS, brand: siTypescript },
-  { name: "Tailwind CSS", category: "Frontend", status: "demonstrated", project: PROJECTS, brand: siTailwindcss },
-  { name: "n8n", category: "Tools & Automation", status: "demonstrated", project: PROJECTS, brand: siN8n },
-  { name: "Git/GitHub", category: "Tools & Automation", status: "demonstrated", project: PROJECTS, brand: siGit },
-
-  // Currently Learning (default until project evidence is confirmed)
-  { name: "Java", category: "Languages", status: "learning", fallback: Coffee },
-  { name: "C", category: "Languages", status: "learning", brand: siC },
-  { name: "C++", category: "Languages", status: "learning", brand: siCplusplus },
-  { name: "SQL", category: "Database", status: "learning", fallback: Database },
-  { name: "SQLite", category: "Database", status: "learning", brand: siSqlite },
-  { name: "JavaScript", category: "Frontend", status: "learning", brand: siJavascript },
-  { name: "HTML", category: "Frontend", status: "learning", brand: siHtml5 },
-  { name: "CSS", category: "Frontend", status: "learning", brand: siCss },
-  { name: "JWT Auth", category: "Backend", status: "learning", brand: siJsonwebtokens },
-  { name: "Vite", category: "Frontend", status: "learning", brand: siVite },
-  { name: "shadcn/ui", category: "Frontend", status: "learning", brand: siShadcnui },
-  { name: "Google Sheets integration", category: "Tools & Automation", status: "learning", brand: siGooglesheets },
-  { name: "WSL2 Ubuntu", category: "Tools & Automation", status: "learning", brand: siUbuntu },
-  { name: "VS Code", category: "Tools & Automation", status: "learning", fallback: Code2 },
+  { name: "Python", category: "Backend", status: "demonstrated", projects: [INV], brand: siPython },
+  { name: "FastAPI", category: "Backend", status: "demonstrated", projects: [INV], brand: siFastapi },
+  { name: "PostgreSQL", category: "Database", status: "demonstrated", projects: [INV], brand: siPostgresql },
+  { name: "REST APIs", category: "Backend", status: "demonstrated", projects: [INV], fallback: Globe },
+  { name: "SQLAlchemy", category: "Backend", status: "demonstrated", projects: [INV], brand: siSqlalchemy },
+  { name: "Alembic", category: "Backend", status: "demonstrated", projects: [INV], fallback: GitMerge },
+  { name: "Docker", category: "Tools & Automation", status: "demonstrated", projects: [INV], brand: siDocker },
+  { name: "React", category: "Frontend", status: "demonstrated", projects: [INV, TASK], brand: siReact },
+  { name: "Next.js", category: "Frontend", status: "demonstrated", projects: [TASK], brand: siNextdotjs },
+  { name: "TypeScript", category: "Frontend", status: "demonstrated", projects: [TASK], brand: siTypescript },
+  { name: "Tailwind CSS", category: "Frontend", status: "demonstrated", projects: [TASK], brand: siTailwindcss },
+  { name: "n8n", category: "Tools & Automation", status: "demonstrated", projects: [INV], brand: siN8n },
+  { name: "Git/GitHub", category: "Tools & Automation", status: "demonstrated", projects: [ALL], brand: siGit },
+  { name: "SQL", category: "Database", status: "demonstrated", projects: [INV], fallback: Database },
+  { name: "SQLite", category: "Database", status: "demonstrated", projects: ["Backend API practice projects"], brand: siSqlite },
+  { name: "JWT Auth", category: "Backend", status: "demonstrated", projects: [TASK], brand: siJsonwebtokens },
+  { name: "Vite", category: "Frontend", status: "demonstrated", projects: [INV], brand: siVite },
+  { name: "JavaScript", category: "Frontend", status: "demonstrated", projects: [INV, TASK], brand: siJavascript },
+  { name: "HTML", category: "Frontend", status: "demonstrated", projects: [INV, TASK], brand: siHtml5 },
+  { name: "CSS", category: "Frontend", status: "demonstrated", projects: [INV, TASK], brand: siCss },
+  { name: "shadcn/ui", category: "Frontend", status: "demonstrated", projects: [INV, TASK], brand: siShadcnui },
+  { name: "Google Sheets integration", category: "Tools & Automation", status: "demonstrated", projects: [INV], brand: siGooglesheets },
+  { name: "WSL2 Ubuntu", category: "Tools & Automation", status: "demonstrated", projects: [ALL], brand: siUbuntu },
+  { name: "VS Code", category: "Tools & Automation", status: "demonstrated", projects: [ALL], fallback: Code2 },
 ];
 
-// Home marquee: demonstrated skills only, in two rows (same order as before).
+// Home marquee: the original 13 demonstrated skills, in two rows.
 const rowOneNames = ["Python", "FastAPI", "PostgreSQL", "REST APIs", "SQLAlchemy", "Alembic", "Docker"];
 const rowTwoNames = ["React", "Next.js", "TypeScript", "Tailwind CSS", "n8n", "Git/GitHub"];
 
