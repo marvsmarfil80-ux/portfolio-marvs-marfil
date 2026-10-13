@@ -60,9 +60,7 @@ export default function AboutPage() {
 
       <section id="github" className="mt-12 scroll-mt-6">
         <h2 className="text-lg font-semibold text-foreground">GitHub</h2>
-        <p className="mt-2 text-sm text-muted">
-          Placeholder section. Content will be added in Phase 3.
-        </p>
+        <p className="mt-2 text-sm text-muted">Coming soon.</p>
       </section>
     </>
   );
