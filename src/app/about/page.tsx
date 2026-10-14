@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Code } from "lucide-react";
 import { SkillsSection } from "@/components/skills-section";
 
 export const metadata: Metadata = { title: "About | Marvs Marfil" };
@@ -8,16 +9,18 @@ export default function AboutPage() {
   return (
     <>
       <section aria-labelledby="about-heading">
-        <h1 id="about-heading" className="text-3xl font-semibold">
-          About Me
-        </h1>
-        <p className="mt-2 text-muted">
-          Learn more about my background, skills, and experience.
-        </p>
+        <div className="border-b border-dashed border-border pb-6">
+          <h1 id="about-heading" className="text-3xl font-semibold">
+            About Me
+          </h1>
+          <p className="mt-2 text-muted">
+            Learn more about my background, skills, and experience.
+          </p>
+        </div>
         <p className="mt-6 font-medium text-accent">
           BSIT Student | Python, FastAPI &amp; n8n | Open to Remote Entry-Level Roles
         </p>
-        <div className="mt-4 max-w-2xl space-y-4 leading-relaxed text-foreground">
+        <div className="mt-4 space-y-4 leading-relaxed text-foreground">
           <p>
             I&apos;m Marvs Marfil, a second-year BSIT student at the Polytechnic
             University of the Philippines. I&apos;m looking for entry-level remote
@@ -50,15 +53,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="skills" className="mt-12 scroll-mt-6">
-        <h2 className="text-lg font-semibold text-foreground">Skills &amp; Tools</h2>
+      <section id="skills" className="mt-10 scroll-mt-6 border-t border-border pt-10">
+        <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
+          <Code className="size-5 text-accent" aria-hidden="true" />
+          Skills &amp; Tools
+        </h2>
         <p className="mt-2 text-sm text-muted">
           Tools I have used in my projects. Select a skill to see the projects.
         </p>
         <SkillsSection />
       </section>
 
-      <section id="github" className="mt-12 scroll-mt-6">
+      <section id="github" className="mt-10 scroll-mt-6 border-t border-border pt-10">
         <h2 className="text-lg font-semibold text-foreground">GitHub</h2>
         <p className="mt-2 text-sm text-muted">Coming soon.</p>
       </section>

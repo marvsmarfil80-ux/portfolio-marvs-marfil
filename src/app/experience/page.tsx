@@ -57,7 +57,7 @@ export default function ExperiencePage() {
           Work and student experience, labeled by type.
         </p>
 
-        <ol className="mt-8 max-w-2xl space-y-8 border-l border-border pl-6">
+        <ol className="mt-8 space-y-8 border-l border-border pl-6">
           {entries.map((e) => (
             <li key={e.role} className="relative">
               <span
@@ -94,7 +94,7 @@ export default function ExperiencePage() {
           Training &amp; Certifications
         </h2>
 
-        <div className="mt-4 max-w-2xl rounded-lg border border-border bg-card p-5">
+        <div className="mt-4 rounded-lg border border-border bg-card p-5">
           <p className="inline-block rounded-full border border-border bg-background px-2.5 py-0.5 text-xs font-medium text-muted">
             Short training
           </p>
@@ -113,7 +113,7 @@ export default function ExperiencePage() {
           </div>
         </div>
 
-        <div className="mt-6 max-w-2xl">
+        <div className="mt-6">
           <h3 className="text-sm font-semibold text-foreground">Office tools</h3>
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Office tools">
             <li className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground">
