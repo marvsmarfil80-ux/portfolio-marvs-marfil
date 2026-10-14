@@ -16,14 +16,14 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
   const pathname = usePathname();
 
   return (
-    <div className="flex h-full flex-col gap-8 p-6">
-      <div className="flex flex-col items-center gap-3 text-center">
-        <div className="relative size-24 overflow-hidden rounded-full border border-border bg-background">
+    <div className="flex flex-col gap-5 px-5 pb-5 pt-10">
+      <div className="flex flex-col items-center gap-3 border-b border-border pb-5 text-center">
+        <div className="relative size-20 overflow-hidden rounded-full border border-border bg-background">
           <Image
             src="/images/profile.jpg"
             alt="Photo of Marvs Marfil"
             fill
-            sizes="96px"
+            sizes="80px"
             className="object-cover object-[50%_35%]"
           />
         </div>
@@ -37,7 +37,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
         <ThemeToggle />
       </div>
 
-      <nav aria-label={label} className="flex-1">
+      <nav aria-label={label}>
         <ul className="flex flex-col gap-1">
           {navLinks.map(({ label: text, href, icon: Icon }) => {
             const active = isActive(pathname, href);
@@ -47,10 +47,10 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
                   href={href}
                   onClick={onNavigate}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
+                  className={`flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors ${
                     active
                       ? "bg-accent/10 font-medium text-foreground"
-                      : "text-muted hover:bg-background hover:text-foreground"
+                      : "text-muted hover:bg-card hover:text-foreground"
                   }`}
                 >
                   <Icon className={`size-4 ${active ? "text-accent" : ""}`} aria-hidden="true" />
@@ -62,7 +62,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
         </ul>
       </nav>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 border-t border-border pt-5">
         <a
           href={siteConfig.cvHref}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-accent px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
@@ -82,7 +82,7 @@ export function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 hidden w-64 border-r border-border bg-card lg:block">
+      <aside className="hidden w-60 shrink-0 lg:block lg:overflow-y-auto">
         <SidebarContent label="Main" />
       </aside>
 
