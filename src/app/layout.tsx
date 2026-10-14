@@ -33,10 +33,16 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <Sidebar />
-          <main id="main-content" tabIndex={-1} className="lg:pl-64">
-            <div className="max-w-6xl px-6 py-10 lg:px-10">{children}</div>
-          </main>
+          <div className="mx-auto lg:flex lg:h-screen lg:max-w-6xl lg:gap-8 lg:px-8">
+            <Sidebar />
+            <main
+              id="main-content"
+              tabIndex={-1}
+              className="main-scroll min-w-0 lg:flex-1 lg:overflow-y-auto"
+            >
+              <div className="px-6 py-10 lg:px-10">{children}</div>
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>

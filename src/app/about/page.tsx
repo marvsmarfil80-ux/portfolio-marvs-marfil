@@ -13,14 +13,14 @@ export default function AboutPage() {
           <h1 id="about-heading" className="text-3xl font-semibold">
             About Me
           </h1>
-          <p className="mt-2 text-muted">
+          <p className="mt-2 text-sm text-muted">
             Learn more about my background, skills, and experience.
           </p>
         </div>
-        <p className="mt-6 font-medium text-accent">
+        <p className="mt-6 text-base font-semibold leading-snug text-foreground">
           BSIT Student | Python, FastAPI &amp; n8n | Open to Remote Entry-Level Roles
         </p>
-        <div className="mt-4 space-y-4 leading-relaxed text-foreground">
+        <div className="mt-3 space-y-3 text-[13px] leading-6 text-foreground/90">
           <p>
             I&apos;m Marvs Marfil, a second-year BSIT student at the Polytechnic
             University of the Philippines. I&apos;m looking for entry-level remote
