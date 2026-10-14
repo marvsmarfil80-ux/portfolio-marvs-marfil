@@ -35,7 +35,7 @@ export default function RootLayout({
           </a>
           <Sidebar />
           <main id="main-content" tabIndex={-1} className="lg:pl-64">
-            <div className="mx-auto max-w-4xl px-6 py-10">{children}</div>
+            <div className="max-w-6xl px-6 py-10 lg:px-10">{children}</div>
           </main>
         </ThemeProvider>
       </body>

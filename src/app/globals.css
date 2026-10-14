@@ -126,3 +126,11 @@
     display: none;
   }
 }
+
+
+/* themed scrollbar: always visible, thin, follows the current text color */
+html {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, currentColor 30%, transparent) transparent;
+}
