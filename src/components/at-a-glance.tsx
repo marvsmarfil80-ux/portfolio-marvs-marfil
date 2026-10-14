@@ -1,5 +1,3 @@
-import { FileText } from "lucide-react";
-import { siteConfig } from "@/config/nav";
 import { CopyEmail } from "@/components/copy-email";
 import { LiveTime } from "@/components/live-time";
 
@@ -7,16 +5,16 @@ export function AtAGlance() {
   return (
     <section
       aria-labelledby="glance-heading"
-      className="rounded-2xl border border-border bg-card p-5"
+      className="rounded-lg border border-border bg-card p-4"
     >
       <h2
         id="glance-heading"
-        className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted"
+        className="mb-3 text-xs font-medium text-muted"
       >
-        At a glance
+        Quick info
       </h2>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex items-center gap-3">
           <span
             className="size-2.5 shrink-0 rounded-full bg-status-done"
@@ -31,17 +29,10 @@ export function AtAGlance() {
         </div>
 
         <LiveTime />
-        <CopyEmail />
-
-        <div className="flex items-center">
-          <a
-            href={siteConfig.cvHref}
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            <FileText className="size-4" aria-hidden="true" />
-            Request CV
-          </a>
+        <div className="sm:col-span-2">
+          <CopyEmail />
         </div>
+
       </div>
     </section>
   );
