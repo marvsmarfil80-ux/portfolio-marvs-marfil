@@ -33,7 +33,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <div className="mx-auto lg:flex lg:h-screen lg:max-w-6xl lg:gap-8 lg:px-8">
+          <div className="mx-auto lg:flex lg:h-screen lg:max-w-[1480px] lg:gap-10 lg:px-8">
             <Sidebar />
             <main
               id="main-content"

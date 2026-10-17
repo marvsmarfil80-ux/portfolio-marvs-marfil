@@ -82,7 +82,7 @@ export function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden w-60 shrink-0 lg:block lg:overflow-y-auto">
+      <aside className="hidden w-64 shrink-0 lg:block lg:overflow-y-auto">
         <SidebarContent label="Main" />
       </aside>
 

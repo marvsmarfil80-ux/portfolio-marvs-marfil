@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PROJECTS_HREF, skills } from "@/data/skills";
+import { skills } from "@/data/skills";
 import type { Skill, SkillCategory } from "@/data/skills";
 import { iconColor } from "@/lib/icon-color";
+import { skillHref } from "@/lib/projects";
 
 type Tab = "All" | SkillCategory;
 
@@ -56,7 +57,7 @@ function SkillChip({ skill }: { skill: Skill }) {
   return (
     <li>
       <Link
-        href={PROJECTS_HREF}
+        href={skillHref(skill)}
         title={usedIn}
         aria-label={usedIn ? `${skill.name}. ${usedIn}` : skill.name}
         className={`${chipBase} border border-border transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
