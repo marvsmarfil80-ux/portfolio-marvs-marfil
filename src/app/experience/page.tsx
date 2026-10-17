@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { FileText } from "lucide-react";
 
-export const metadata: Metadata = { title: "Experience | Marvs Marfil" };
+export const metadata: Metadata = {
+  title: "Experience",
+  description: "Work experience and training of Marvs Marfil, including data encoding through SPES and a work immersion at DepEd.",
+};
 
 type Entry = {
   type: string;

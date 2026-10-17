@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact-form";
 import { LiveTime } from "@/components/live-time";
 
 export const metadata: Metadata = {
-  title: "Contact | Marvs Marfil",
+  title: "Contact",
   description: "Contact Marvs Marfil by email or through his profiles, and request a copy of his CV.",
 };
 

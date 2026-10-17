@@ -34,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <StatusBadge status={project.status} />
           {project.featured && <span className="text-xs font-medium text-accent">Featured</span>}
         </div>
-        <h2 className="text-lg font-semibold text-foreground group-hover:text-accent">{project.title}</h2>
+        <h3 className="text-lg font-semibold text-foreground group-hover:text-accent">{project.title}</h3>
         <p className="text-sm leading-6 text-muted">{project.summary}</p>
         <div className="mt-auto pt-1">
           <TechIcons skills={getStackSkills(project)} />

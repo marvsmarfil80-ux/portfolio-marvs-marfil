@@ -1,17 +1,18 @@
 import { Briefcase, FolderKanban, House, Mail, User } from "lucide-react";
 
-const cvSubject = "CV request";
 const cvMessage =
   "Hello Marvs,\n\nI would like to request a copy of your CV. Thank you.\n";
 
-const cvMailto =
-  "mailto:marvsmarfil80@gmail.com?subject=" +
-  encodeURIComponent(cvSubject) +
-  "&body=" +
-  encodeURIComponent(cvMessage);
+// When public/cv/Marvs-Marfil-CV.pdf exists, change this one line to "/cv/Marvs-Marfil-CV.pdf".
+const cvFileHref: string | null = null;
 
 export const siteConfig = {
   name: "Marvs Marfil",
+  siteUrl: "https://marvs-marfil.vercel.app",
+  description:
+    "Portfolio of Marvs Marfil: AI workflow automation with n8n, API projects with Python and FastAPI, and full-stack development. Open to remote entry-level roles.",
+  // Keep false until launch. This single flag drives robots meta, robots.txt, and the sitemap.
+  indexable: false,
   email: "marvsmarfil80@gmail.com",
   githubUrl: "https://github.com/marvsmarfil80-ux",
   // Add each URL when ready. A null value shows a "Link coming soon" card.
@@ -21,12 +22,9 @@ export const siteConfig = {
   linkedinUrl: null as string | null,
   // IANA time zone used by the live PH time display (UTC+8).
   timeZone: "Asia/Manila",
-  // Request CV links to the Contact page card.
-  cvHref: "/contact?topic=cv#request-cv",
-  // Until a PDF exists this stays null and the card opens an email draft.
-  // When public/cv/Marvs-Marfil-CV.pdf exists, change this one line to "/cv/Marvs-Marfil-CV.pdf".
-  cvFileHref: null as string | null,
-  cvMailto,
+  // Request CV opens the Contact form (CV topic), or the PDF once cvFileHref is set.
+  cvHref: cvFileHref ?? "/contact?topic=cv#request-cv",
+  cvFileHref,
   cvMessage,
   cvLabel: "Request CV",
 };

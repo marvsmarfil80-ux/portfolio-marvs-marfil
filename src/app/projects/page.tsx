@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { ProjectCard } from "@/components/project-card";
 import { getFeaturedProjects } from "@/lib/projects";
 
-export const metadata: Metadata = { title: "Projects | Marvs Marfil" };
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Projects by Marvs Marfil, with the current status of each one.",
+};
 
 export default function ProjectsPage() {
   const featured = getFeaturedProjects();

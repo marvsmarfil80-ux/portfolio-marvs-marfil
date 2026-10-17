@@ -17,7 +17,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug);
-  return { title: project ? `${project.title} | Marvs Marfil` : "Project | Marvs Marfil" };
+  return {
+    title: project ? project.title : "Project",
+    description: project
+      ? `Details and current status of ${project.title}, a project by Marvs Marfil.`
+      : "Project details by Marvs Marfil.",
+  };
 }
 
 function List({ items }: { items: string[] }) {

@@ -3,6 +3,7 @@ import { Onest } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Sidebar } from "@/components/sidebar";
+import { siteConfig } from "@/config/nav";
 
 const onest = Onest({
   subsets: ["latin"],
@@ -11,8 +12,25 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-  title: "Marvs Marfil | Portfolio",
-  description: "Portfolio of Marvs Marfil, BSIT student.",
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: { default: "Marvs Marfil | Portfolio", template: "%s | Marvs Marfil" },
+  description: siteConfig.description,
+  robots: siteConfig.indexable
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: "Marvs Marfil | Portfolio",
+    description: siteConfig.description,
+    url: "/",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marvs Marfil | Portfolio",
+    description: siteConfig.description,
+  },
 };
 
 export default function RootLayout({
