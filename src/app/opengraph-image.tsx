@@ -19,14 +19,14 @@ export default function Image() {
   return new ImageResponse(
     (
       <div style={box}>
-        <div style={{ display: "flex", fontSize: 30, color: "#2dd4bf" }}>Portfolio</div>
+        <div style={{ display: "flex", fontSize: 30, color: "#ffffff" }}>Portfolio</div>
         <div style={{ display: "flex", fontSize: 88, fontWeight: 700, marginTop: 16 }}>
           Marvs Marfil
         </div>
         <div style={{ display: "flex", fontSize: 40, color: "#9ca3af", marginTop: 24 }}>
           {"AI Workflow Automation, APIs & Full-Stack"}
         </div>
-        <div style={{ display: "flex", fontSize: 30, color: "#2dd4bf", marginTop: 40 }}>
+        <div style={{ display: "flex", fontSize: 30, color: "#ffffff", marginTop: 40 }}>
           Open to Remote Entry-Level Roles
         </div>
       </div>

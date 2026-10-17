@@ -8,7 +8,7 @@ IT Assistant, Non-Voice Support (chat/email), Workflow/AI Automation, Junior Sof
 ## Content rules (apply to every phase)
 1. No invented experience, clients, certifications, or testimonials.
 2. Keep employment, student work immersion, training, and personal projects separate.
-3. Planned or in-progress projects carry a "Planned" or "In Progress" badge until finished.
+3. Projects do not show status badges. Never present an unfinished project as finished: say so in its text (for example, "in progress").
 4. No expert-level claims without evidence. Keep "Demonstrated" skills separate from "Currently Learning".
 5. Clean, responsive, and easy for a recruiter to navigate.
 6. No Excel/Microsoft-focused practice projects and no Cisco/networking projects. The encoder experience and Digital Literacy certificate are evidence of accuracy and basic digital skills, not expertise. Microsoft Office is listed as "Basic" only, if at all.
@@ -24,9 +24,9 @@ IT Assistant, Non-Voice Support (chat/email), Workflow/AI Automation, Junior Sof
 - No /training page, Testimonials, Achievements, verified badge, or language toggle.
 
 ## Design
-- Font: Onest (via next/font). Dark by default, teal accent (`#2dd4bf` dark, `#0f766e` light, darker for text contrast).
+- Font: Onest (via next/font). Dark by default, neutral white accent (`#ffffff` dark, `#0f172a` light).
 - Dark palette: background `#0b0f14`, cards `#121821`, border `#1f2937`, text `#e5e7eb`, muted `#9ca3af`.
-- Status badges: Done = green, In Progress = amber, Planned = gray.
+- No status badges. Colors stay neutral; only the connect cards keep their brand colors.
 - Minimal animations. Respect `prefers-reduced-motion`.
 
 ## Tech
@@ -61,3 +61,4 @@ Do not share the site for applications until every item below is done.
 - [ ] Re-run `npm audit`. Known: `braces` (GHSA-vfj7-8cjw-p6xm) is dev-only through eslint-config-next, with no patched version available. Do not use `npm audit fix --force`.
 - [ ] Final responsive check at 375, 768, 1024, 1440, and 1920 px, in dark and light.
 - [ ] Final `npx tsc --noEmit`, `npm run lint`, and `npm run build`, then merge to `main` and confirm the Vercel deploy.
+- [ ] No project text claims a project is finished when it is not (the status badges were removed, so the text must be honest).

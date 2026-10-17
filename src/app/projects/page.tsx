@@ -17,9 +17,9 @@ export default function ProjectsPage() {
           Featured projects and their current status. Select a project to see its details.
         </p>
       </div>
-      <section id="featured" aria-labelledby="featured-heading" className="mt-10 scroll-mt-6 border-t border-border pt-10">
-        <h2 id="featured-heading" className="text-lg font-semibold text-foreground">Featured</h2>
-        <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+      <section id="featured" aria-labelledby="featured-heading" className="mt-6 scroll-mt-6">
+        <h2 id="featured-heading" className="sr-only">Featured projects</h2>
+        <ul className="grid gap-4 sm:grid-cols-2">
           {featured.map((p) => (
             <li key={p.slug}>
               <ProjectCard project={p} />
