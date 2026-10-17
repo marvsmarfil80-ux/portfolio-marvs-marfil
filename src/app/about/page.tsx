@@ -17,10 +17,10 @@ export default function AboutPage() {
             Learn more about my background, skills, and experience.
           </p>
         </div>
-        <p className="mt-6 text-base font-semibold leading-snug text-foreground">
+        <p className="mt-6 text-lg font-semibold leading-snug text-foreground">
           BSIT Student | Python, FastAPI &amp; n8n | Open to Remote Entry-Level Roles
         </p>
-        <div className="mt-3 space-y-3 text-[13px] leading-6 text-foreground/90">
+        <div className="mt-3 space-y-3 text-[15px] leading-7 text-foreground/90">
           <p>
             I&apos;m Marvs Marfil, a second-year BSIT student at the Polytechnic
             University of the Philippines. I&apos;m looking for entry-level remote
