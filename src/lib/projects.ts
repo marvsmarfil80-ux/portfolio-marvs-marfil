@@ -1,5 +1,5 @@
 import { projects, type Project } from "@/data/projects";
-import { skills, type Skill } from "@/data/skills";
+import { PROJECTS_HREF, skills, type Skill } from "@/data/skills";
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
@@ -49,4 +49,14 @@ export function getScreenshots(project: Project): ShotItem[] {
     alt: `Temporary dummy image ${n} used to test the carousel`,
     caption: `Dummy caption ${n}. This is a temporary test image.`,
   }));
+}
+
+// One mapped project -> its detail page. Several projects or none -> the list.
+export function skillHref(skill: Skill): string {
+  const names = skill.projects ?? [];
+  if (names.length === 1) {
+    const slug = projectSlugForName(names[0]);
+    if (slug) return `/projects/${slug}`;
+  }
+  return PROJECTS_HREF;
 }

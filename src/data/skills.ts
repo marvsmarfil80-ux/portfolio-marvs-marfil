@@ -36,7 +36,7 @@ export type Skill = {
   name: string;
   category: SkillCategory;
   status: SkillStatus;
-  // Projects that prove the skill. Links point to /projects until Phase 4 adds detail pages.
+  // Projects that prove the skill. Links resolve to a project detail page when exactly one project is listed (see skillHref in src/lib/projects.ts).
   projects?: string[];
   brand?: SimpleIcon;
   fallback?: LucideIcon;

@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
 type BentoCardProps = {
   href: string;
   title: string;
-  description: string;
+  description?: string;
   icon: LucideIcon;
   layout?: "stacked" | "split";
   className?: string;
@@ -47,7 +47,9 @@ export function BentoCard({
         </span>
         <div className="space-y-1">
           <h3 className="font-semibold text-foreground">{title}</h3>
-          <p className="break-words text-sm text-muted">{description}</p>
+          {description ? (
+            <p className="break-words text-sm text-muted">{description}</p>
+          ) : null}
         </div>
       </div>
       {children ? (
