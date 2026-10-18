@@ -17,7 +17,7 @@ export function AtAGlance() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex items-center gap-3">
           <span
-            className="size-2.5 shrink-0 rounded-full bg-status-done"
+            className="size-2.5 shrink-0 rounded-full bg-accent"
             aria-hidden="true"
           />
           <div>

@@ -6,7 +6,6 @@ import { projects } from "@/data/projects";
 import { getAdjacentProjects, getProject, getScreenshots, getStackSkills } from "@/lib/projects";
 import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { ProjectSection } from "@/components/project-section";
-import { StatusBadge } from "@/components/status-badge";
 import { TechIcons } from "@/components/tech-icons";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -17,7 +16,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug);
-  return { title: project ? `${project.title} | Marvs Marfil` : "Project | Marvs Marfil" };
+  return {
+    title: project ? project.title : "Project",
+    description: project
+      ? `Details and current status of ${project.title}, a project by Marvs Marfil.`
+      : "Project details by Marvs Marfil.",
+  };
 }
 
 function List({ items }: { items: string[] }) {
@@ -47,9 +51,6 @@ export default async function ProjectPage({ params }: Props) {
           Back to projects
         </Link>
         <h1 className="mt-4 text-3xl font-semibold">{project.title}</h1>
-        <div className="mt-3">
-          <StatusBadge status={project.status} className="text-sm" />
-        </div>
         <p className="mt-3 text-sm leading-6 text-muted">{project.summary}</p>
       </div>
 
@@ -66,10 +67,7 @@ export default async function ProjectPage({ params }: Props) {
           <ol className="space-y-3">
             {project.steps.map((step, i) => (
               <li key={step.title} className="rounded-lg border border-border bg-card p-5">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <p className="text-sm font-medium text-foreground">{i + 1}. {step.title}</p>
-                  <StatusBadge status={step.status} />
-                </div>
+                <p className="text-sm font-medium text-foreground">{i + 1}. {step.title}</p>
                 <p className="mt-2 text-sm leading-6 text-muted">{step.description}</p>
               </li>
             ))}

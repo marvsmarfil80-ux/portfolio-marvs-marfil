@@ -6,7 +6,7 @@ export function ExperienceCard({ className = "" }: { className?: string }) {
     <BentoCard
       href="/experience"
       title="Experience"
-      description="SPES (DOLE) Data Encoder and DepEd Work Immersion, with a focus on accuracy and attention to detail."
+      description="My work experience and training."
       icon={Briefcase}
       className={className}
     />

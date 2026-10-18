@@ -2,14 +2,14 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Light mode (accent #0d9488) */
+/* Light mode (neutral near-black accent) */
 :root {
   --background: #f8fafc;
   --card: #ffffff;
   --border: #e2e8f0;
   --foreground: #0f172a;
   --muted: #475569;
-  --accent: #0d9488;
+  --accent: #0f172a;
   --accent-foreground: #ffffff;
   --status-done: #15803d;
   --status-progress: #b45309;
@@ -23,7 +23,7 @@
   --border: #1f2937;
   --foreground: #e5e7eb;
   --muted: #9ca3af;
-  --accent: #2dd4bf;
+  --accent: #ffffff;
   --accent-foreground: #0b0f14;
   --status-done: #4ade80;
   --status-progress: #fbbf24;

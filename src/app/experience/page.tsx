@@ -1,45 +1,51 @@
 import type { Metadata } from "next";
-import { FileText } from "lucide-react";
+import { Briefcase, ChevronDown, FileText } from "lucide-react";
 
-export const metadata: Metadata = { title: "Experience | Marvs Marfil" };
+export const metadata: Metadata = {
+  title: "Experience",
+  description: "Work experience and training of Marvs Marfil, including data encoding through SPES and a work immersion at DepEd.",
+};
 
 type Entry = {
   type: string;
   role: string;
   org: string;
   period: string;
+  place: string;
+  mode: string;
   context: string;
   points: string[];
-  shows: string;
 };
 
 // Order: SPES first, then the DepEd work immersion.
 const entries: Entry[] = [
   {
-    type: "Government student employment program",
+    type: "Government program",
     role: "Data Encoder",
     org: "Special Program for Employment of Students (SPES), Department of Labor and Employment (DOLE)",
-    period: "2023 to 2025 · about 2 months per year, for 3 years",
+    period: "May - Jul · 2023 to 2026",
+    place: "Biñan, Laguna",
+    mode: "On-site",
     context:
       "SPES is a Philippine government program that gives students short-term work.",
     points: [
       "Encoded information into digital records.",
       "Kept data organized and accurate.",
     ],
-    shows: "Accuracy, attention to detail, and following a process.",
   },
   {
-    type: "Student work immersion (not a regular job)",
+    type: "Work immersion",
     role: "Encoder / Research Data Assistant",
     org: "Department of Education (DepEd), Philippines",
-    period: "1 month",
+    period: "Apr - Jun 2025",
+    place: "Biñan, Laguna",
+    mode: "On-site",
     context:
       "DepEd is the Philippine government agency for basic education. This was a student work immersion.",
     points: [
       "Encoded and organized research information.",
       "Helped check teachers' research documents.",
     ],
-    shows: "Accuracy, attention to detail, and following a process.",
   },
 ];
 
@@ -57,32 +63,34 @@ export default function ExperiencePage() {
           Work and student experience, labeled by type.
         </p>
 
-        <ol className="mt-8 space-y-8 border-l border-border pl-6">
+        <ol className="mt-8 space-y-4">
           {entries.map((e) => (
-            <li key={e.role} className="relative">
-              <span
+            <li key={e.role} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
+              <div
                 aria-hidden="true"
-                className="absolute -left-[1.9rem] top-6 size-3 rounded-full border-2 border-accent bg-background"
-              />
-              <div className="rounded-lg border border-border bg-card p-5">
-                <p className="inline-block rounded-full border border-border bg-background px-2.5 py-0.5 text-xs font-medium text-muted">
-                  {e.type}
-                </p>
-                <h2 className="mt-3 text-lg font-semibold text-foreground">
-                  {e.role}
-                </h2>
+                className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-muted"
+              >
+                <Briefcase className="size-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h2 className="text-lg font-semibold text-foreground">{e.role}</h2>
                 <p className="mt-1 text-sm text-foreground">{e.org}</p>
-                <p className="mt-1 text-sm text-muted">{e.period}</p>
-                <p className="mt-3 text-sm text-muted">{e.context}</p>
-                <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground">
-                  {e.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-                <p className="mt-3 text-sm text-muted">
-                  <span className="font-medium text-foreground">What it shows: </span>
-                  {e.shows}
+                <p className="text-sm text-muted">{e.place}</p>
+                <p className="mt-1 text-sm text-muted">
+                  {e.period} · {e.type} · {e.mode}
                 </p>
+                <details className="group mt-2">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
+                    <ChevronDown className="size-4 transition-transform group-open:rotate-180" aria-hidden="true" />
+                    Show details
+                  </summary>
+                  <p className="mt-3 text-sm text-muted">{e.context}</p>
+                  <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground">
+                    {e.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </details>
               </div>
             </li>
           ))}

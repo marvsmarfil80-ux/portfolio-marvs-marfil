@@ -22,9 +22,10 @@ export function Hero() {
       </div>
 
       <p className="mt-3 text-sm leading-6 text-muted">
-        BSIT student building with Python, FastAPI, and n8n. Open to remote
-        entry-level roles in IT assistance, non-voice support, workflow
-        automation, and junior software development.
+        I build AI-assisted workflows in n8n, APIs with Python and FastAPI, and
+        full-stack applications with Next.js. Open to remote entry-level roles in
+        IT assistance, non-voice support, workflow automation, and junior
+        software development.
       </p>
     </section>
   );
