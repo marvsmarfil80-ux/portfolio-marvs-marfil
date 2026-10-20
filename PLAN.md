@@ -20,7 +20,7 @@ IT Assistant, Non-Voice Support (chat/email), Workflow/AI Automation, Junior Sof
 - About: Background, Skills (Demonstrated vs Currently Learning), GitHub.
 - Experience: timeline, followed by Training & Certifications.
 - Projects: cards and a detail page per project (`/projects/[slug]`).
-- Contact: mailto, click-to-copy email, links.
+- Contact: form that emails me through the Resend API (route handler), click-to-copy email, links.
 - No /training page, Testimonials, Achievements, verified badge, or language toggle.
 
 ## Design
@@ -31,7 +31,7 @@ IT Assistant, Non-Voice Support (chat/email), Workflow/AI Automation, Junior Sof
 
 ## Tech
 Next.js (App Router) + TypeScript + Tailwind CSS (`src/` folder), next-themes, lucide-react.
-Static-friendly: no backend, API routes, or database. Hosting: GitHub + Vercel Hobby (free).
+Static-friendly: one API route (/api/contact) sends contact messages through Resend (RESEND_API_KEY env var, never committed); no database. Hosting: GitHub + Vercel Hobby (free).
 
 ## Phases
 - [x] Phase 1: Layout (sidebar, theme, placeholder pages, accessibility, deploy)

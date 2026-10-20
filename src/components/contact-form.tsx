@@ -19,6 +19,8 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
   const [email, setEmail] = useState("");
   const [cv, setCv] = useState(startWithCv);
   const [message, setMessage] = useState(startWithCv ? siteConfig.cvMessage.trim() : "");
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const valid =
     name.trim() !== "" && /^\S+@\S+\.\S+$/.test(email.trim()) && message.trim() !== "";
@@ -28,11 +30,24 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
     if (message.trim() === siteConfig.cvMessage.trim()) setMessage("");
   }
 
-  function send() {
-    if (!valid) return;
-    const subject = cv ? "CV request" : "Portfolio inquiry";
-    const body = `${message.trim()}\n\nName: ${name.trim()}\nEmail: ${email.trim()}`;
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  async function send() {
+    if (!valid || status === "sending") return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, cv, website }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setCv(false);
+    } catch {
+      setStatus("error");
+    }
   }
 
   function onSubmit(e: FormEvent) {

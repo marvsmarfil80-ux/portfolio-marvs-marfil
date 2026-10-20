@@ -20,7 +20,7 @@ export default function AboutPage() {
           </p>
         </div>
         <p className="mt-6 text-xl font-semibold leading-snug text-foreground lg:text-2xl">
-          AI Workflow Automation, APIs &amp; Full-Stack | n8n, Python, FastAPI &amp; Next.js | Open to Remote Entry-Level Roles
+          AI Workflow Automation, APIs &amp; Full-Stack | n8n, Python, FastAPI &amp; Next.js | Open to Remote Opportunities
         </p>
         <div className="mt-3 space-y-3 text-[17px] leading-8 text-foreground/90">
           <p>

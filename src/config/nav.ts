@@ -10,16 +10,16 @@ export const siteConfig = {
   name: "Marvs Marfil",
   siteUrl: "https://marvs-marfil.vercel.app",
   description:
-    "Portfolio of Marvs Marfil: AI workflow automation with n8n, API projects with Python and FastAPI, and full-stack development. Open to remote entry-level roles.",
+    "Portfolio of Marvs Marfil: AI workflow automation with n8n, API projects with Python and FastAPI, and full-stack development. Open to remote opportunities.",
   // Keep false until launch. This single flag drives robots meta, robots.txt, and the sitemap.
   indexable: false,
   email: "marvsmarfil80@gmail.com",
   githubUrl: "https://github.com/marvsmarfil80-ux",
   // Add each URL when ready. A null value shows a "Link coming soon" card.
-  facebookUrl: null as string | null,
-  instagramUrl: null as string | null,
-  upworkUrl: null as string | null,
-  linkedinUrl: null as string | null,
+  facebookUrl: "https://www.facebook.com/share/1bAAyqqdWi/" as string | null,
+  instagramUrl: "https://www.instagram.com/mrvsjqn" as string | null,
+  upworkUrl: "https://www.upwork.com/freelancers/~01f603839f424ed12f" as string | null,
+  linkedinUrl: "https://www.linkedin.com/in/marvs-marfil-36a032424" as string | null,
   // IANA time zone used by the live PH time display (UTC+8).
   timeZone: "Asia/Manila",
   // Request CV opens the Contact form (CV topic), or the PDF once cvFileHref is set.

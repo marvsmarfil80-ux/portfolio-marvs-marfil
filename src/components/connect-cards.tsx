@@ -17,7 +17,7 @@ type Item = {
 };
 
 const items: Item[] = [
-  { name: "Email", desc: "Send me a message about roles or collaboration.", tone: "from-red-600 to-red-900", path: siGmail.path, href: `mailto:${siteConfig.email}`, external: false, copy: true },
+  { name: "Email", desc: "Send me a message about roles or collaboration.", tone: "from-red-600 to-red-900", path: siGmail.path, href: `https://mail.google.com/mail/?view=cm&fs=1&to=${siteConfig.email}`, external: true, copy: true },
   { name: "GitHub", desc: "Browse the source code of my projects.", tone: "from-slate-700 to-slate-950", path: siGithub.path, href: siteConfig.githubUrl, external: true },
   { name: "Facebook", desc: "Connect with me on Facebook.", tone: "from-blue-600 to-blue-900", path: siFacebook.path, href: siteConfig.facebookUrl, external: true },
   { name: "Instagram", desc: "Follow me on Instagram.", tone: "from-pink-600 to-purple-800", path: siInstagram.path, href: siteConfig.instagramUrl, external: true },

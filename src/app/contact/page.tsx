@@ -15,7 +15,7 @@ export default function ContactPage() {
       <header className="border-b border-dashed border-border pb-6">
         <h1 id="contact-heading" className="text-3xl font-semibold">Get in touch</h1>
         <p className="mt-2 text-muted">
-          I am open to remote entry-level roles. Email is the fastest way to reach me.
+          I am open to remote opportunities. Email is the fastest way to reach me.
         </p>
         <div className="mt-4">
           <LiveTime />

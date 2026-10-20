@@ -23,7 +23,7 @@ export function AtAGlance() {
           <div>
             <p className="text-sm text-muted">Availability</p>
             <p className="font-medium text-foreground">
-              Open to remote entry-level roles
+              Open to remote opportunities
             </p>
           </div>
         </div>

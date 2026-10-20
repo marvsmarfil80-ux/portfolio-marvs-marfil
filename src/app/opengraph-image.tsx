@@ -27,7 +27,7 @@ export default function Image() {
           {"AI Workflow Automation, APIs & Full-Stack"}
         </div>
         <div style={{ display: "flex", fontSize: 30, color: "#ffffff", marginTop: 40 }}>
-          Open to Remote Entry-Level Roles
+          Open to Remote Opportunities
         </div>
       </div>
     ),
