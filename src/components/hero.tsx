@@ -4,13 +4,13 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="border-b border-dashed border-border pb-6"
+      className="border-b border-dashed border-border pb-4"
     >
       <h1 id="hero-heading" className="text-3xl font-semibold">
         Hi, I&apos;m Marvs Marfil
       </h1>
 
-      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
+      <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
         <span className="flex items-center gap-2">
           <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
           IT Assistant &amp; AI Workflow Automation
@@ -21,7 +21,7 @@ export function Hero() {
         </span>
       </div>
 
-      <p className="mt-3 text-sm leading-6 text-muted">
+      <p className="mt-3 text-sm leading-[1.6] text-muted">
         I build AI-assisted workflows in n8n, APIs with Python and FastAPI, and
         full-stack applications with Next.js. Open to remote entry-level roles in
         IT assistance, non-voice support, workflow automation, and junior

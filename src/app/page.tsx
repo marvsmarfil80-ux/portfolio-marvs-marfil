@@ -1,5 +1,4 @@
 import { AboutCard } from "@/components/about-card";
-import { AtAGlance } from "@/components/at-a-glance";
 import { ExperienceCard } from "@/components/experience-card";
 import { GithubCard } from "@/components/github-card";
 import { Hero } from "@/components/hero";
@@ -8,14 +7,13 @@ import { SkillsCard } from "@/components/skills-card";
 
 export default function HomePage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       <Hero />
-      <AtAGlance />
       <section aria-labelledby="explore-heading">
         <h2 id="explore-heading" className="mb-4 text-base text-muted">
           Explore my projects, skills, and experience.
         </h2>
-        <div className="grid auto-rows-[minmax(19.5rem,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid auto-rows-[minmax(19rem,auto)] grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
           <ProjectsCard className="sm:col-span-2" />
           <AboutCard />
           <SkillsCard />
