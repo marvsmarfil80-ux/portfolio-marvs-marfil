@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent, KeyboardEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArrowUpRight, X } from "lucide-react";
@@ -22,8 +22,20 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  const text = message.trim() || (cv ? siteConfig.cvMessage.trim() : "");
   const valid =
-    name.trim() !== "" && /^\S+@\S+\.\S+$/.test(email.trim()) && message.trim() !== "";
+    name.trim() !== "" && /^\S+@\S+\.\S+$/.test(email.trim()) && text !== "";
+
+  useEffect(() => {
+    function onRequestCv() {
+      setCv(true);
+      setStatus("idle");
+      setMessage((m) => (m.trim() === "" ? siteConfig.cvMessage.trim() : m));
+      setTimeout(() => document.getElementById("cf-message")?.focus({ preventScroll: true }), 0);
+    }
+    window.addEventListener("request-cv", onRequestCv);
+    return () => window.removeEventListener("request-cv", onRequestCv);
+  }, []);
 
   function removeCv() {
     setCv(false);
@@ -37,7 +49,7 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, cv, website }),
+        body: JSON.stringify({ name, email, message: text, cv, website }),
       });
       if (!res.ok) throw new Error("failed");
       setStatus("sent");
@@ -102,5 +114,5 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
 
 export function ContactForm() {
   const topic = useSearchParams().get("topic");
-  return <Form key={topic ?? "none"} startWithCv={topic === "cv"} />;
+  return <Form startWithCv={topic === "cv"} />;
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
+import type { MouseEvent } from "react";
 import Image from "next/image";
 import { FileText, Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/config/nav";
@@ -14,6 +15,15 @@ function isActive(pathname: string, href: string) {
 
 function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () => void }) {
   const pathname = usePathname();
+
+  function onCvClick(e: MouseEvent<HTMLAnchorElement>) {
+    if (!siteConfig.cvFileHref && pathname === "/contact") {
+      e.preventDefault();
+      window.dispatchEvent(new Event("request-cv"));
+      document.getElementById("request-cv")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    onNavigate?.();
+  }
 
   return (
     <div className="flex flex-col gap-5 px-6 pb-5 pt-12">
@@ -65,6 +75,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
       <div className="flex flex-col gap-3 border-t border-border pt-5">
         <a
           href={siteConfig.cvHref}
+          onClick={onCvClick}
           className="inline-flex items-center justify-center gap-2 rounded-md border border-accent px-4 py-2 text-base font-medium text-foreground transition-colors hover:bg-accent/10"
         >
           <FileText className="size-5 text-accent" aria-hidden="true" />
