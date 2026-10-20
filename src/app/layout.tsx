@@ -51,14 +51,14 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <div className="mx-auto lg:flex lg:h-screen lg:max-w-[1900px] lg:gap-0 lg:px-8 xl:px-[8%] 2xl:px-[10%]">
+          <div className="mx-auto lg:flex lg:h-dvh lg:max-w-[1900px] lg:gap-0 lg:px-8 xl:px-[8%] 2xl:px-[10%]">
             <Sidebar />
             <main
               id="main-content"
               tabIndex={-1}
-              className="main-scroll min-w-0 lg:flex-1 lg:overflow-y-auto"
+              className="main-scroll relative min-w-0 lg:flex-1 lg:overflow-y-auto"
             >
-              <div className="px-6 py-12 lg:max-w-[880px] lg:px-10">{children}</div>
+              <div className="px-6 pb-8 pt-12 lg:max-w-[880px] lg:px-10">{children}</div>
             </main>
           </div>
         </ThemeProvider>
