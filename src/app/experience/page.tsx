@@ -10,6 +10,7 @@ type Entry = {
   type: string;
   role: string;
   org: string;
+  orgFull: string;
   period: string;
   place: string;
   mode: string;
@@ -22,7 +23,8 @@ const entries: Entry[] = [
   {
     type: "Government program",
     role: "Data Encoder",
-    org: "Special Program for Employment of Students (SPES), Department of Labor and Employment (DOLE)",
+    org: "SPES, Department of Labor and Employment (DOLE)",
+    orgFull: "Special Program for Employment of Students (SPES), Department of Labor and Employment (DOLE)",
     period: "May - Jul · 2023 to 2026",
     place: "Biñan, Laguna",
     mode: "On-site",
@@ -36,7 +38,8 @@ const entries: Entry[] = [
   {
     type: "Work immersion",
     role: "Encoder / Research Data Assistant",
-    org: "Department of Education (DepEd), Philippines",
+    org: "Department of Education (DepEd)",
+    orgFull: "Department of Education (DepEd), Philippines",
     period: "Apr - Jun 2025",
     place: "Biñan, Laguna",
     mode: "On-site",
@@ -56,16 +59,18 @@ export default function ExperiencePage() {
   return (
     <>
       <section aria-labelledby="experience-heading">
-        <h1 id="experience-heading" className="text-3xl font-semibold">
-          Experience
-        </h1>
-        <p className="mt-2 text-muted">
-          Work and student experience, labeled by type.
-        </p>
+        <header className="border-b border-dashed border-border pb-6">
+          <h1 id="experience-heading" className="text-page-title font-medium">
+            Experience
+          </h1>
+          <p className="mt-3 text-muted">
+            Work and student experience, labeled by type.
+          </p>
+        </header>
 
-        <ol className="mt-8 space-y-4">
+        <ol className="mt-6 space-y-4">
           {entries.map((e) => (
-            <li key={e.role} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
+            <li key={e.role} className="flex gap-5 rounded-2xl border border-border bg-card p-6">
               <div
                 aria-hidden="true"
                 className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-muted"
@@ -73,10 +78,11 @@ export default function ExperiencePage() {
                 <Briefcase className="size-6" />
               </div>
               <div className="min-w-0 flex-1">
-                <h2 className="text-lg font-semibold text-foreground">{e.role}</h2>
-                <p className="mt-1 text-sm text-foreground">{e.org}</p>
-                <p className="text-sm text-muted">{e.place}</p>
+                <h2 className="text-card-title font-medium text-foreground">{e.role}</h2>
                 <p className="mt-1 text-sm text-muted">
+                  {e.org} · {e.place}
+                </p>
+                <p className="mt-2 text-meta text-muted">
                   {e.period} · {e.type} · {e.mode}
                 </p>
                 <details className="group mt-2">
@@ -84,8 +90,9 @@ export default function ExperiencePage() {
                     <ChevronDown className="size-4 transition-transform group-open:rotate-180" aria-hidden="true" />
                     Show details
                   </summary>
-                  <p className="mt-3 text-sm text-muted">{e.context}</p>
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground">
+                  <p className="mt-3 text-sm text-foreground">{e.orgFull}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{e.context}</p>
+                  <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-foreground">
                     {e.points.map((p) => (
                       <li key={p}>{p}</li>
                     ))}
@@ -97,39 +104,39 @@ export default function ExperiencePage() {
         </ol>
       </section>
 
-      <section id="training" className="mt-12 scroll-mt-6">
-        <h2 className="text-lg font-semibold text-foreground">
+      <section id="training" className="mt-10 scroll-mt-6">
+        <h2 className="text-xl font-medium text-foreground">
           Training &amp; Certifications
         </h2>
 
-        <div className="mt-4 rounded-lg border border-border bg-card p-5">
+        <div className="mt-4 rounded-2xl border border-border bg-card p-6">
           <p className="inline-block rounded-full border border-border bg-background px-2.5 py-0.5 text-xs font-medium text-muted">
             Short training
           </p>
-          <h3 className="mt-3 text-base font-semibold text-foreground">
+          <h3 className="mt-3 text-card-title font-medium text-foreground">
             {trainingTitle}
           </h3>
-          <p className="mt-1 text-sm text-muted">2023 · 3 days</p>
-          <p className="mt-3 text-sm text-foreground">
+          <p className="mt-1 text-meta text-muted">2023 · 3 days</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
             Covered Microsoft-related tools and basic digital skills. This is a short
             training, not an advanced certification.
           </p>
 
           {/* Certificate image placeholder. Replace when the blurred image is ready. */}
-          <div className="mt-4 flex aspect-[4/3] max-w-sm items-center justify-center rounded-md border border-dashed border-border bg-background p-4 text-center text-sm text-muted">
+          <div className="mt-4 flex aspect-[16/9] max-w-64 items-center justify-center rounded-md border border-dashed border-border bg-background p-3 text-center text-meta text-muted">
             Certificate image will be added.
           </div>
         </div>
 
         <div className="mt-6">
-          <h3 className="text-sm font-semibold text-foreground">Office tools</h3>
+          <h3 className="text-sm font-medium text-foreground">Office tools</h3>
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Office tools">
-            <li className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground">
+            <li className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground">
               <FileText className="size-4 shrink-0 text-accent" aria-hidden="true" />
               Microsoft Office (Basic)
             </li>
           </ul>
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-2 text-meta text-muted">
             Basic level, from the training above and my data encoding work.
           </p>
         </div>

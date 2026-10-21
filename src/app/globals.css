@@ -44,6 +44,16 @@
   --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Type scale, measured against the reference layout */
+@theme {
+  --text-page-title: 1.5rem;
+  --text-page-title--line-height: 1.25;
+  --text-card-title: 1.0625rem;
+  --text-card-title--line-height: 1.4;
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.5;
+}
+
 @layer base {
   body {
     background-color: var(--background);
