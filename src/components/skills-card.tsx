@@ -9,7 +9,7 @@ const [rowOne, rowTwo] = marqueeRows;
 function Chip({ skill }: { skill: Skill }) {
   const Fallback = skill.fallback;
   return (
-    <li className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground">
+    <li className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-foreground/25 bg-background px-3.5 py-2 text-sm font-medium text-foreground">
       {skill.brand ? (
         <svg
           role="img"

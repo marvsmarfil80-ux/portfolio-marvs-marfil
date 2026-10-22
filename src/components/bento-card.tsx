@@ -24,7 +24,7 @@ export function BentoCard({
   const isSplit = layout === "split";
 
   const base =
-    "group relative flex h-full overflow-hidden rounded-2xl border border-border bg-card p-5 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+    "group relative flex h-full overflow-hidden rounded-2xl border border-foreground/30 bg-card p-5 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   const direction = isSplit
     ? "flex-col gap-5 md:flex-row md:gap-4"
     : "flex-col items-center gap-4 text-center";
@@ -42,7 +42,7 @@ export function BentoCard({
             : "flex flex-col items-center gap-3"
         }
       >
-        <span className="flex size-12 items-center justify-center rounded-xl border border-border bg-background">
+        <span className="flex size-12 items-center justify-center rounded-xl border border-foreground/25 bg-foreground/15">
           <Icon className="size-5 text-accent" aria-hidden="true" />
         </span>
         <div className="space-y-1">

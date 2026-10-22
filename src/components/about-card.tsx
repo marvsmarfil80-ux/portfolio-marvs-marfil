@@ -15,8 +15,8 @@ export function AboutCard({ className = "" }: { className?: string }) {
         className="relative mx-auto -mb-10 mt-2 h-44 w-32"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 rotate-6 rounded-2xl border border-border bg-background" />
-        <div className="absolute inset-0 -rotate-3 flex flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-border bg-card text-xs text-muted shadow-lg">
+        <div className="absolute inset-0 rotate-6 rounded-2xl border border-foreground/25 bg-background" />
+        <div className="absolute inset-0 -rotate-3 flex flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-foreground/30 bg-card text-xs text-muted shadow-lg">
           <User className="size-5" />
           Your photo
         </div>
