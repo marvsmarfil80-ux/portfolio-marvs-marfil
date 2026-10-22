@@ -102,13 +102,18 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-xs text-muted">
-          <span className="font-medium text-foreground">Ctrl + Enter</span> to send. This opens your email app with the message ready to send.
+          <span className="font-medium text-foreground">Ctrl + Enter</span> to send.
         </p>
-        <button type="submit" disabled={!valid} className="inline-flex items-center gap-2 rounded-xl border border-accent bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:border-border disabled:bg-card disabled:text-muted disabled:opacity-100">
-          Send message
+        <button type="submit" disabled={!valid || status === "sending"} className="inline-flex items-center gap-2 rounded-xl border border-accent bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:border-border disabled:bg-card disabled:text-muted disabled:opacity-100">
+          {status === "sending" ? "Sending..." : "Send message"}
           <ArrowUpRight className="size-4" aria-hidden="true" />
         </button>
       </div>
+      {(status === "sent" || status === "error") && (
+        <p role="status" className="text-sm text-foreground">
+          {status === "sent" ? "Message sent. Thank you." : `Could not send. Please try again or email ${siteConfig.email}.`}
+        </p>
+      )}
     </form>
   );
 }
