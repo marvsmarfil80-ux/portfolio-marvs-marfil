@@ -76,6 +76,7 @@ function Form({ startWithCv }: { startWithCv: boolean }) {
 
   return (
     <form onSubmit={onSubmit} onKeyDown={onKeyDown} className="mt-6 flex flex-col gap-4">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
       <div className="grid gap-4 sm:grid-cols-2">
         <div className={field}>
           <input id="cf-name" type="text" autoComplete="name" placeholder=" " value={name} onChange={(e) => setName(e.target.value)} className={input} />

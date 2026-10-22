@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import type { MouseEvent } from "react";
 import Image from "next/image";
-import { FileText, Menu, X } from "lucide-react";
+import { ArrowRight, FileText, Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/config/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -40,7 +40,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
         <p className="text-xl font-semibold">{siteConfig.name}</p>
         <a
           href={`mailto:${siteConfig.email}`}
-          className="-mt-2 break-all text-base text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="-mt-2 break-all text-sm text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           {siteConfig.email}
         </a>
@@ -57,7 +57,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
                   href={href}
                   onClick={onNavigate}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-3 rounded-md px-4 py-2 text-base transition-colors ${
+                  className={`flex items-center gap-2 rounded-md px-4 py-2 text-base transition-colors ${
                     active
                       ? "bg-accent/10 font-medium text-foreground"
                       : "text-muted hover:bg-card hover:text-foreground"
@@ -76,10 +76,11 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
         <a
           href={siteConfig.cvHref}
           onClick={onCvClick}
-          className="inline-flex items-center justify-center gap-2 rounded-md border border-accent px-4 py-2 text-base font-medium text-foreground transition-colors hover:bg-accent/10"
+          className="flex items-center gap-2 rounded-md border border-accent px-4 py-2 text-base font-semibold text-foreground transition-colors hover:bg-accent/10"
         >
           <FileText className="size-5 text-accent" aria-hidden="true" />
           Request CV
+          <ArrowRight className="ml-auto size-4 text-muted" aria-hidden="true" />
         </a>
       </div>
     </div>

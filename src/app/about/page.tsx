@@ -12,17 +12,17 @@ export default function AboutPage() {
     <>
       <section aria-labelledby="about-heading">
         <div className="border-b border-dashed border-border pb-6">
-          <h1 id="about-heading" className="text-3xl font-semibold">
+          <h1 id="about-heading" className="text-page-title font-medium">
             About Me
           </h1>
-          <p className="mt-2 text-base text-muted">
+          <p className="mt-3 text-base text-muted">
             Learn more about my background, skills, and experience.
           </p>
         </div>
-        <p className="mt-6 text-xl font-semibold leading-snug text-foreground lg:text-2xl">
+        <p className="mt-6 text-xl font-semibold leading-[1.45] text-foreground">
           AI Workflow Automation, APIs &amp; Full-Stack | n8n, Python, FastAPI &amp; Next.js | Open to Remote Opportunities
         </p>
-        <div className="mt-3 space-y-3 text-[17px] leading-8 text-foreground/90">
+        <div className="mt-3 space-y-4 text-base leading-8 text-foreground/90">
           <p>
             I build AI-assisted workflows in n8n, APIs with Python, FastAPI, and
             PostgreSQL, and full-stack applications with React and Next.js. I focus
@@ -43,20 +43,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="skills" className="mt-10 scroll-mt-6 border-t border-border pt-10">
-        <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
-          <Code className="size-5 text-accent" aria-hidden="true" />
+      <section id="skills" className="mt-8 scroll-mt-6 border-t border-border pt-8">
+        <h2 className="flex items-center gap-2 text-xl font-medium text-foreground">
+          <Code className="size-[22px] text-accent" aria-hidden="true" />
           Skills &amp; Tools
         </h2>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-base text-muted">
           Tools I have used in my projects. Select a skill to see the projects.
         </p>
         <SkillsSection />
       </section>
 
-      <section id="github" className="mt-10 scroll-mt-6 border-t border-border pt-10">
-        <h2 className="text-lg font-semibold text-foreground">GitHub</h2>
-        <p className="mt-2 text-sm text-muted">Coming soon.</p>
+      <section id="github" className="mt-8 scroll-mt-6 border-t border-border pt-8">
+        <h2 className="text-xl font-medium text-foreground">GitHub</h2>
+        <p className="mt-2 text-base text-muted">Coming soon.</p>
       </section>
     </>
   );
