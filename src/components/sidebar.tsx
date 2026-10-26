@@ -28,14 +28,14 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
   return (
     <div className="flex flex-col gap-5 px-6 pb-5 pt-12">
       <div className="flex flex-col items-center gap-3 border-b border-border pb-5 text-center">
-        <div className="relative size-26 overflow-hidden rounded-full border border-border bg-white dark:bg-card">
+        <div className="relative isolate size-26 overflow-hidden rounded-full bg-white [clip-path:circle(50%)] dark:bg-card">
           <Image
             src="/images/profile-main.jpg"
             alt="Photo of Marvs Marfil"
             fill
             sizes="104px"
             priority
-            className="origin-top scale-125 object-cover"
+            className="origin-top scale-125 object-cover transition-opacity duration-0 dark:opacity-0 dark:delay-[450ms] dark:duration-[450ms]"
           />
           <Image
             src="/images/profile-dark.jpg"
@@ -46,6 +46,7 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
             priority
             className="origin-top translate-x-[1.5%] -translate-y-[6%] scale-[1.4] object-cover opacity-0 transition-opacity duration-[450ms] ease-in-out dark:opacity-100"
           />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-inset ring-border/60" />
         </div>
         <p className="text-xl font-semibold">{siteConfig.name}</p>
         <a
