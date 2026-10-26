@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Briefcase, ChevronDown, FileText } from "lucide-react";
+import { Briefcase, Check, ChevronDown, FileText, Lightbulb, ListChecks, Rocket, type LucideIcon } from "lucide-react";
+import { experienceDetails } from "../../data/experience-details";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 type Entry = {
+  slug: string;
   type: string;
   role: string;
   org: string;
@@ -15,12 +17,12 @@ type Entry = {
   place: string;
   mode: string;
   context: string;
-  points: string[];
 };
 
 // Order: SPES first, then the DepEd work immersion.
 const entries: Entry[] = [
   {
+    slug: "spes",
     type: "Government program",
     role: "Data Encoder",
     org: "SPES, Department of Labor and Employment (DOLE)",
@@ -30,12 +32,9 @@ const entries: Entry[] = [
     mode: "On-site",
     context:
       "SPES is a Philippine government program that gives students short-term work.",
-    points: [
-      "Encoded information into digital records.",
-      "Kept data organized and accurate.",
-    ],
   },
   {
+    slug: "deped",
     type: "Work immersion",
     role: "Encoder / Research Data Assistant",
     org: "Department of Education (DepEd)",
@@ -45,15 +44,45 @@ const entries: Entry[] = [
     mode: "On-site",
     context:
       "DepEd is the Philippine government agency for basic education. This was a student work immersion.",
-    points: [
-      "Encoded and organized research information.",
-      "Helped check teachers' research documents.",
-    ],
   },
 ];
 
 const trainingTitle =
   "Digital Literacy Training on Office Productivity Tools: MS Word, MS Excel and MS PowerPoint with Internet, Media and Information Literacy";
+
+function DetailSection({ icon: Icon, title, items }: { icon: LucideIcon; title: string; items: string[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div>
+      <h3 className="flex items-center gap-2 text-meta font-semibold uppercase tracking-wide text-[#a62e38]">
+        <Icon className="size-4" aria-hidden="true" />
+        {title}
+      </h3>
+      <ul className="mt-3 space-y-2.5">
+        {items.map((t) => (
+          <li key={t} className="flex gap-2.5 text-sm leading-relaxed text-muted">
+            <Check className="mt-1 size-3.5 shrink-0 text-[#a62e38]" aria-hidden="true" />
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function DetailBlock({ slug }: { slug: string }) {
+  const d = experienceDetails[slug];
+  if (!d) return null;
+  return (
+    <div className="mt-5 space-y-6 border-t border-border pt-5">
+      <DetailSection icon={ListChecks} title="Responsibilities" items={d.responsibilities} />
+      <div className="grid gap-6 md:grid-cols-2">
+        <DetailSection icon={Lightbulb} title="What I learned" items={d.learned} />
+        <DetailSection icon={Rocket} title="Impact" items={d.impact} />
+      </div>
+    </div>
+  );
+}
 
 export default function ExperiencePage() {
   return (
@@ -88,15 +117,12 @@ export default function ExperiencePage() {
                 <details className="group mt-2">
                   <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
                     <ChevronDown className="size-4 transition-transform group-open:rotate-180" aria-hidden="true" />
-                    Show details
+                    <span className="group-open:hidden">Show details</span>
+                    <span className="hidden group-open:inline">Hide details</span>
                   </summary>
                   <p className="mt-3 text-sm text-foreground">{e.orgFull}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{e.context}</p>
-                  <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-foreground">
-                    {e.points.map((p) => (
-                      <li key={p}>{p}</li>
-                    ))}
-                  </ul>
+                  <DetailBlock slug={e.slug} />
                 </details>
               </div>
             </li>
