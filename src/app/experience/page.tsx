@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Briefcase, Check, ChevronDown, FileText, Lightbulb, ListChecks, Rocket, type LucideIcon } from "lucide-react";
+import Image from "next/image";
 import { experienceDetails } from "../../data/experience-details";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 type Entry = {
   slug: string;
+  logo?: string;
   type: string;
   role: string;
   org: string;
@@ -23,6 +25,7 @@ type Entry = {
 const entries: Entry[] = [
   {
     slug: "spes",
+    logo: "/images/orgs/dole-logo.jpg",
     type: "Government program",
     role: "Data Encoder",
     org: "SPES, Department of Labor and Employment (DOLE)",
@@ -35,6 +38,7 @@ const entries: Entry[] = [
   },
   {
     slug: "deped",
+    logo: "/images/orgs/deped-logo.jpg",
     type: "Work immersion",
     role: "Encoder / Research Data Assistant",
     org: "Department of Education (DepEd)",
@@ -102,9 +106,13 @@ export default function ExperiencePage() {
             <li key={e.role} className="flex gap-3 rounded-2xl border border-border bg-card p-4">
               <div
                 aria-hidden="true"
-                className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-muted"
+                className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background text-muted"
               >
-                <Briefcase className="size-[18px]" />
+                {e.logo ? (
+                  <Image src={e.logo} alt="" width={80} height={80} className="size-full bg-white object-contain p-0.5" />
+                ) : (
+                  <Briefcase className="size-[18px]" />
+                )}
               </div>
               <div className="min-w-0 flex-1">
                 <h2 className="text-base font-medium leading-[1.4] text-foreground">{e.role}</h2>
