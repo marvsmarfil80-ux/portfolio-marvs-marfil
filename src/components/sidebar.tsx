@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useRef } from "react";
 import type { MouseEvent } from "react";
-import Image from "next/image";
 import { ArrowRight, FileText, Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/config/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -28,13 +28,14 @@ function SidebarContent({ label, onNavigate }: { label: string; onNavigate?: () 
   return (
     <div className="flex flex-col gap-5 px-6 pb-5 pt-12">
       <div className="flex flex-col items-center gap-3 border-b border-border pb-5 text-center">
-        <div className="relative size-22 overflow-hidden rounded-full border border-border bg-background">
+        <div className="relative size-26 overflow-hidden rounded-full border border-border bg-white">
           <Image
-            src="/images/profile.jpg"
+            src="/images/profile-main.jpg"
             alt="Photo of Marvs Marfil"
             fill
-            sizes="96px"
-            className="object-cover object-[50%_35%]"
+            sizes="104px"
+            priority
+            className="origin-top scale-125 object-cover"
           />
         </div>
         <p className="text-xl font-semibold">{siteConfig.name}</p>
