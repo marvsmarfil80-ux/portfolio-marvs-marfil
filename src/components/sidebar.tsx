@@ -105,7 +105,7 @@ export function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden w-72 shrink-0 lg:block lg:overflow-y-auto">
+      <aside className="hidden w-72 shrink-0 lg:sticky lg:top-0 lg:block lg:h-dvh lg:overflow-y-auto">
         <SidebarContent label="Main" />
       </aside>
 
