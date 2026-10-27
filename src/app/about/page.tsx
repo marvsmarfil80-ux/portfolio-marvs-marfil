@@ -49,7 +49,7 @@ export default function AboutPage() {
           Skills &amp; Tools
         </h2>
         <p className="mt-2 text-base text-muted">
-          Tools I have used in my projects. Select a skill to see the projects.
+          Tools and technologies I work with.
         </p>
         <SkillsSection />
       </section>

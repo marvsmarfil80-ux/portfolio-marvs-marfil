@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { skills } from "@/data/skills";
 import type { Skill, SkillCategory } from "@/data/skills";
 import { iconColor } from "@/lib/icon-color";
-import { skillHref } from "@/lib/projects";
 
 type Tab = "All" | SkillCategory;
 
@@ -16,13 +14,23 @@ function countFor(tab: Tab) {
 }
 
 function SkillIcon({ skill }: { skill: Skill }) {
+  if (skill.badge) {
+    return (
+      <svg viewBox="0 0 24 24" className="size-5 shrink-0" aria-hidden="true">
+        <rect width="24" height="24" rx="5" fill={skill.badge.color} />
+        <text x="12" y="17" textAnchor="middle" fontSize="14" fontWeight="700" fill="#fff" fontFamily="sans-serif">
+          {skill.badge.letter}
+        </text>
+      </svg>
+    );
+  }
   const Fallback = skill.fallback;
   if (skill.brand) {
     return (
       <svg
         role="img"
         viewBox="0 0 24 24"
-        className="size-4 shrink-0"
+        className="size-5 shrink-0"
         fill={iconColor(skill.brand.hex)}
         aria-hidden="true"
       >
@@ -31,40 +39,26 @@ function SkillIcon({ skill }: { skill: Skill }) {
     );
   }
   return Fallback ? (
-    <Fallback className="size-4 shrink-0 text-accent" aria-hidden="true" />
+    <Fallback className="size-5 shrink-0 text-accent" aria-hidden="true" />
   ) : null;
 }
 
 const chipBase =
-  "inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-background px-3.5 py-2 text-sm font-medium text-foreground";
+  "inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-foreground/[0.08] px-4 py-2 text-sm font-medium text-foreground";
 
 function SkillChip({ skill }: { skill: Skill }) {
-  if (skill.status === "learning") {
-    return (
-      <li>
-        <span className={`${chipBase} border border-dashed border-border`}>
-          <SkillIcon skill={skill} />
-          {skill.name}
+  const learning = skill.status === "learning";
+  return (
+    <li>
+      <span className={`${chipBase} border border-foreground/[0.12]${learning ? " border-dashed" : ""}`}>
+        <SkillIcon skill={skill} />
+        {skill.name}
+        {learning && (
           <span className="rounded-full bg-card px-2 py-0.5 text-xs font-normal text-muted">
             Learning
           </span>
-        </span>
-      </li>
-    );
-  }
-
-  const usedIn = skill.projects?.length ? `Used in: ${skill.projects.join(", ")}` : "";
-  return (
-    <li>
-      <Link
-        href={skillHref(skill)}
-        title={usedIn}
-        aria-label={usedIn ? `${skill.name}. ${usedIn}` : skill.name}
-        className={`${chipBase} border border-border transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
-      >
-        <SkillIcon skill={skill} />
-        {skill.name}
-      </Link>
+        )}
+      </span>
     </li>
   );
 }
@@ -87,11 +81,11 @@ export function SkillsSection() {
               className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                 isActive
                   ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border bg-card text-foreground hover:border-accent"
+                  : "border-foreground/[0.12] bg-transparent text-foreground hover:border-foreground/30"
               }`}
             >
               {tab}
-              <span className={`text-xs ${isActive ? "opacity-80" : "text-muted"}`}>
+              <span className={`inline-flex size-5 items-center justify-center rounded-full text-xs ${isActive ? "bg-accent-foreground/15" : "bg-foreground/[0.12] text-muted"}`}>
                 {countFor(tab)}
               </span>
             </button>
@@ -99,7 +93,7 @@ export function SkillsSection() {
         })}
       </div>
 
-      <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${active} skills`}>
+      <ul className="mt-4 flex flex-wrap gap-2.5" aria-label={`${active} skills`}>
         {visible.map((s) => (
           <SkillChip key={s.name} skill={s} />
         ))}
