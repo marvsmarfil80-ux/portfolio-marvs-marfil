@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Briefcase, Check, ChevronDown, FileText, Lightbulb, ListChecks, Rocket, type LucideIcon } from "lucide-react";
+import { Briefcase, Check, ChevronDown, GraduationCap, Lightbulb, ListChecks, Rocket, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { experienceDetails } from "../../data/experience-details";
+import { education } from "../../data/education";
+import { certifications } from "../../data/certifications";
+import { CertificationCard } from "@/components/certification-card";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -50,9 +53,6 @@ const entries: Entry[] = [
       "DepEd is the Philippine government agency for basic education. This was a student work immersion.",
   },
 ];
-
-const trainingTitle =
-  "Digital Literacy Training on Office Productivity Tools: MS Word, MS Excel and MS PowerPoint with Internet, Media and Information Literacy";
 
 function DetailSection({ icon: Icon, title, items }: { icon: LucideIcon; title: string; items: string[] }) {
   if (items.length === 0) return null;
@@ -142,38 +142,36 @@ export default function ExperiencePage() {
         <h2 className="text-lg font-medium text-foreground">
           Training &amp; Certifications
         </h2>
-
-        <div className="mt-3 rounded-2xl border border-border bg-card p-4">
-          <p className="inline-block rounded-full border border-border bg-background px-2 py-0.5 text-[11px] font-medium text-muted">
-            Short training
-          </p>
-          <h3 className="mt-2 text-base font-medium leading-[1.35] text-foreground">
-            {trainingTitle}
-          </h3>
-          <p className="mt-1 text-xs text-muted">2023 · 3 days</p>
-          <p className="mt-1.5 text-[13px] leading-[1.4] text-muted">
-            Covered Microsoft-related tools and basic digital skills. This is a short
-            training, not an advanced certification.
-          </p>
-
-          {/* Certificate image placeholder. Replace when the blurred image is ready. */}
-          <div className="mt-3 flex aspect-[16/9] max-w-56 items-center justify-center rounded-md border border-dashed border-border bg-background p-3 text-center text-meta text-muted">
-            Certificate image will be added.
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-[13px] font-medium text-foreground">Office tools</h3>
-          <ul className="mt-3 flex flex-wrap gap-2" aria-label="Office tools">
-            <li className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-2.5 py-1 text-[13px] font-medium text-foreground">
-              <FileText className="size-3.5 shrink-0 text-accent" aria-hidden="true" />
-              Microsoft Office (Basic)
+        <ol className="mt-3 space-y-4">
+          {certifications.map((c) => (
+            <CertificationCard key={c.slug} cert={c} />
+          ))}
+        </ol>
+      </section>
+      <section id="education" className="mt-8 scroll-mt-6">
+        <h2 className="flex items-center gap-2 text-lg font-medium text-foreground">
+          <GraduationCap className="size-5" aria-hidden="true" />
+          Education
+        </h2>
+        <p className="mt-1 text-sm text-muted">My academic background.</p>
+        <ol className="mt-3 space-y-4">
+          {education.map((e) => (
+            <li key={e.school} className="flex gap-3 rounded-2xl border border-border bg-card p-4">
+              <div
+                aria-hidden="true"
+                className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white"
+              >
+                <Image src={e.logo} alt="" width={96} height={96} className="size-full object-contain p-0.5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base font-medium leading-[1.4] text-foreground">{e.school}</h3>
+                <p className="mt-0.5 text-[13px] leading-[1.4] text-muted">{e.program}</p>
+                <p className="mt-1 text-xs leading-[1.4] text-muted">{e.period} · {e.place}</p>
+                <p className="mt-0.5 text-xs leading-[1.4] text-muted">{e.highlights}</p>
+              </div>
             </li>
-          </ul>
-          <p className="mt-2 text-xs text-muted">
-            Basic level, from the training above and my data encoding work.
-          </p>
-        </div>
+          ))}
+        </ol>
       </section>
     </>
   );
