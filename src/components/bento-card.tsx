@@ -8,6 +8,7 @@ type BentoCardProps = {
   description?: string;
   icon: LucideIcon;
   layout?: "stacked" | "split";
+  centerChildren?: boolean;
   className?: string;
   children?: React.ReactNode;
 };
@@ -18,6 +19,7 @@ export function BentoCard({
   description,
   icon: Icon,
   layout = "stacked",
+  centerChildren = false,
   className = "",
   children,
 }: BentoCardProps) {
@@ -53,7 +55,7 @@ export function BentoCard({
         </div>
       </div>
       {children ? (
-        <div className={isSplit ? "min-w-0 flex-1" : "mt-auto w-full"}>
+        <div className={isSplit ? "min-w-0 flex-1" : centerChildren ? "my-auto w-full" : "mt-auto w-full"}>
           {children}
         </div>
       ) : null}
