@@ -11,21 +11,21 @@ export function Hero() {
       </h1>
 
       <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
-        <span className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-          IT Assistant &amp; AI Workflow Automation
+        <span className="flex items-center gap-3">
+          <span className="size-1 rounded-full bg-muted" aria-hidden="true" />
+          Software Developer &amp; AI Workflow Automation
         </span>
         <span className="flex items-center gap-1.5">
           <MapPin className="size-4 shrink-0" aria-hidden="true" />
-          Philippines · PH Time (UTC+8)
+          Based in Biñan, Laguna, Philippines
         </span>
       </div>
 
       <p className="mt-3 text-sm leading-[1.6] text-muted">
         I build AI-assisted workflows in n8n, APIs with Python and FastAPI, and
         full-stack applications with Next.js. Open to remote roles in
-        IT assistance, non-voice support, workflow automation, and
-        software development.
+        AI workflow automation, software development, IT assistance, and
+        non-voice support.
       </p>
     </section>
   );
