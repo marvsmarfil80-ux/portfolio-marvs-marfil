@@ -50,7 +50,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <div className="mx-auto lg:flex lg:max-w-[1232px] lg:items-start lg:gap-0 lg:px-8">
+          <div className="mx-auto lg:ml-[max(0px,calc((100%_-_1232px)*0.45))] lg:flex lg:max-w-[1232px] lg:items-start lg:gap-0 lg:px-8">
             <Sidebar />
             <main
               id="main-content"
