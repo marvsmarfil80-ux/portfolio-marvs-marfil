@@ -8,28 +8,28 @@ const heading =
 
 export function CertificationCard({ cert: c }: { cert: Certification }) {
   return (
-    <li className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-4 sm:flex-row sm:items-start">
-      <div className="flex min-w-0 flex-1 gap-3">
+    <li className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-4 sm:flex-row sm:p-6 sm:items-start">
+      <div className="flex min-w-0 flex-1 gap-3 sm:gap-5">
         <div
           aria-hidden="true"
-          className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background text-muted"
+          className="flex size-12 shrink-0 sm:size-[58px] items-center justify-center overflow-hidden rounded-xl border border-border bg-background text-muted"
         >
           {c.logo ? (
             <Image src={c.logo} alt="" width={96} height={96} className="size-full bg-white object-contain p-0.5" />
           ) : (
-            <Award className="size-5" />
+            <Award className="size-5 sm:size-6" />
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="text-base font-medium leading-[1.4] text-foreground">{c.title}</h3>
-          <p className="mt-0.5 text-[13px] leading-[1.4] text-muted">
+          <h3 className="text-card-title font-medium leading-[1.6] text-foreground">{c.title}</h3>
+          <p className="mt-0.5 text-sm leading-[1.6] text-muted">
             {c.provider} · {c.place}
           </p>
-          <p className="mt-1 text-xs leading-[1.4] text-muted">
+          <p className="mt-1.5 text-meta leading-[1.6] text-muted">
             {c.period} · {c.type} · {c.duration}
           </p>
           <details className="group mt-1">
-            <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-[13px] text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
               <ChevronDown className="size-3.5 transition-transform group-open:rotate-180" aria-hidden="true" />
               <span className="group-open:hidden">Show details</span>
               <span className="hidden group-open:inline">Hide details</span>

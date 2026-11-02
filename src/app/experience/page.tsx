@@ -103,27 +103,27 @@ export default function ExperiencePage() {
 
         <ol className="mt-6 space-y-4">
           {entries.map((e) => (
-            <li key={e.role} className="flex gap-3 rounded-2xl border border-border bg-card p-4">
+            <li key={e.role} className="flex gap-3 rounded-2xl border border-border bg-card p-4 sm:gap-5 sm:p-6">
               <div
                 aria-hidden="true"
-                className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background text-muted"
+                className="flex size-12 shrink-0 sm:size-[58px] items-center justify-center overflow-hidden rounded-xl border border-border bg-background text-muted"
               >
                 {e.logo ? (
                   <Image src={e.logo} alt="" width={80} height={80} className="size-full bg-white object-contain p-0.5" />
                 ) : (
-                  <Briefcase className="size-[18px]" />
+                  <Briefcase className="size-5 sm:size-6" />
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <h2 className="text-base font-medium leading-[1.4] text-foreground">{e.role}</h2>
-                <p className="mt-0.5 text-[13px] leading-[1.4] text-muted">
+                <h2 className="text-card-title font-medium leading-[1.6] text-foreground">{e.role}</h2>
+                <p className="mt-0.5 text-sm leading-[1.6] text-muted">
                   {e.org} · {e.place}
                 </p>
-                <p className="mt-1 text-xs leading-[1.4] text-muted">
+                <p className="mt-1.5 text-meta leading-[1.6] text-muted">
                   {e.period} · {e.type} · {e.mode}
                 </p>
                 <details className="group mt-1">
-                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-[13px] text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm text-muted hover:text-foreground [&::-webkit-details-marker]:hidden">
                     <ChevronDown className="size-3.5 transition-transform group-open:rotate-180" aria-hidden="true" />
                     <span className="group-open:hidden">Show details</span>
                     <span className="hidden group-open:inline">Hide details</span>
@@ -156,18 +156,18 @@ export default function ExperiencePage() {
         <p className="mt-1 text-sm text-muted">My academic background.</p>
         <ol className="mt-3 space-y-4">
           {education.map((e) => (
-            <li key={e.school} className="flex gap-3 rounded-2xl border border-border bg-card p-4">
+            <li key={e.school} className="flex gap-3 rounded-2xl border border-border bg-card p-4 sm:gap-5 sm:p-6">
               <div
                 aria-hidden="true"
-                className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white"
+                className="flex size-12 shrink-0 sm:size-[58px] items-center justify-center overflow-hidden rounded-xl border border-border bg-white"
               >
                 <Image src={e.logo} alt="" width={96} height={96} className="size-full object-contain p-0.5" />
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-base font-medium leading-[1.4] text-foreground">{e.school}</h3>
-                <p className="mt-0.5 text-[13px] leading-[1.4] text-muted">{e.program}</p>
-                <p className="mt-1 text-xs leading-[1.4] text-muted">{e.period} · {e.place}</p>
-                <p className="mt-0.5 text-xs leading-[1.4] text-muted">{e.highlights}</p>
+                <h3 className="text-card-title font-medium leading-[1.6] text-foreground">{e.school}</h3>
+                <p className="mt-0.5 text-sm leading-[1.6] text-muted">{e.program}</p>
+                <p className="mt-1.5 text-meta leading-[1.6] text-muted">{e.period} · {e.place}</p>
+                <p className="mt-1 text-meta leading-[1.6] text-muted">{e.highlights}</p>
               </div>
             </li>
           ))}
