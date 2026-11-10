@@ -49,7 +49,7 @@ Static-friendly: one API route (/api/contact) sends contact messages through Res
 
 - The Home GitHub card reads real contribution data from the GitHub GraphQL API on the server (src/lib/github.ts). It needs GITHUB_TOKEN (never NEXT_PUBLIC_).
 - Token type: fine-grained personal access token, public repositories read-only, 1 year.
-- Expires: [add the expiry date from GitHub settings].
+- Expires: November 11, 2027.
 - Stored in .env.local and in Vercel Production. A new env var only reaches a new deployment, so redeploy after changing it.
 - When the token expires or is missing, the card shows "Activity unavailable". Create a new token before the expiry date and update both places.
 
