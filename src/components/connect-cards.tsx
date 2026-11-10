@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
-import { siFacebook, siGithub, siGmail, siInstagram, siUpwork } from "simple-icons";
+import { siFacebook, siGithub, siGmail, siInstagram, siWhatsapp } from "simple-icons";
 import { siteConfig } from "@/config/nav";
 
 type Item = {
@@ -21,7 +21,7 @@ const items: Item[] = [
   { name: "GitHub", desc: "Browse the source code of my projects.", tone: "from-slate-700 to-slate-950", path: siGithub.path, href: siteConfig.githubUrl, external: true },
   { name: "Facebook", desc: "Connect with me on Facebook.", tone: "from-blue-600 to-blue-900", path: siFacebook.path, href: siteConfig.facebookUrl, external: true },
   { name: "Instagram", desc: "Follow me on Instagram.", tone: "from-pink-600 to-purple-800", path: siInstagram.path, href: siteConfig.instagramUrl, external: true },
-  { name: "Upwork", desc: "View my Upwork profile.", tone: "from-green-700 to-green-900", path: siUpwork.path, href: siteConfig.upworkUrl, external: true },
+  { name: "WhatsApp", desc: "Chat with me on WhatsApp.", tone: "from-green-700 to-green-900", path: siWhatsapp.path, href: siteConfig.whatsappUrl, external: true },
   { name: "LinkedIn", desc: "Connect with me professionally.", tone: "from-sky-700 to-sky-950", text: "in", href: siteConfig.linkedinUrl, external: true },
 ];
 
