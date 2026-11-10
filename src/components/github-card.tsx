@@ -18,12 +18,13 @@ const PERIOD_LABEL = `${new Date(
   timeZone: "UTC",
 })} - Present`;
 
-const LEVEL_CLASS = [
-  "bg-foreground/[0.08]",
-  "bg-[var(--gh-1)]",
-  "bg-[var(--gh-2)]",
-  "bg-[var(--gh-3)]",
-  "bg-[var(--gh-4)]",
+const LEVEL_CLASS = "bg-foreground/[0.08]";
+const LEVEL_COLOR = [
+  undefined,
+  "var(--gh-1)",
+  "var(--gh-2)",
+  "var(--gh-3)",
+  "var(--gh-4)",
 ];
 
 function tip(d: ContributionDay): string {
@@ -53,7 +54,8 @@ function Heatmap({ weeks }: { weeks: ContributionDay[][] }) {
             <div
               key={d.date}
               title={tip(d)}
-              className={`aspect-square rounded-[3px] ${LEVEL_CLASS[d.level]}`}
+              className={`aspect-square rounded-[3px] ${d.level === 0 ? LEVEL_CLASS : ""}`}
+              style={LEVEL_COLOR[d.level] ? { backgroundColor: LEVEL_COLOR[d.level] } : undefined}
             />
           ))}
         </div>
@@ -69,8 +71,12 @@ function Legend() {
       className="flex items-center gap-1.5 text-meta text-muted"
     >
       <span>Less</span>
-      {LEVEL_CLASS.map((c) => (
-        <span key={c} className={`size-3 rounded-[3px] ${c}`} />
+      {LEVEL_COLOR.map((c, i) => (
+        <span
+          key={i}
+          className={`size-3 rounded-[3px] ${i === 0 ? LEVEL_CLASS : ""}`}
+          style={c ? { backgroundColor: c } : undefined}
+        />
       ))}
       <span>More</span>
     </div>
