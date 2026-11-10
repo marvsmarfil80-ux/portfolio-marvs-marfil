@@ -14,6 +14,10 @@
   --status-done: #15803d;
   --status-progress: #b45309;
   --status-planned: #4b5563;
+  --gh-1: #9be9a8;
+  --gh-2: #40c463;
+  --gh-3: #30a14e;
+  --gh-4: #216e39;
 }
 
 /* Dark mode (default) */
@@ -28,6 +32,10 @@
   --status-done: #4ade80;
   --status-progress: #fbbf24;
   --status-planned: #9ca3af;
+  --gh-1: #0e4429;
+  --gh-2: #006d32;
+  --gh-3: #26a641;
+  --gh-4: #39d353;
 }
 
 @theme inline {

@@ -53,11 +53,6 @@ export default function AboutPage() {
         </p>
         <SkillsSection />
       </section>
-
-      <section id="github" className="mt-8 scroll-mt-6 border-t border-border pt-8">
-        <h2 className="text-xl font-medium text-foreground">GitHub</h2>
-        <p className="mt-2 text-base text-muted">Coming soon.</p>
-      </section>
     </>
   );
 }
